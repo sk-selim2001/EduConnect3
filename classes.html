@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Classes - EduMentor | Excellence in Indian Education</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap"
+        rel="stylesheet" />
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e76f3c;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #27ae60;
+            --transition: all 0.4s ease;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --border-radius: 10px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            color: var(--dark);
+            background-color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-family: "Merriweather", serif;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1.3;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 10px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+        }
+
+        .btn:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.4);
+        }
+
+        .btn-accent {
+            background: var(--accent);
+        }
+
+        .btn-accent:hover {
+            background: #c0392b;
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+        }
+
+        .btn-outline:hover {
+            background: var(--secondary);
+            color: white;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 70px;
+        }
+
+        .section-header h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .section-header h2:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            font-size: 2.2rem;
+            color: var(--secondary);
+            margin-right: 10px;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo-text span {
+            color: var(--secondary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 500;
+            font-size: 1.05rem;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        nav ul li a.active {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        nav ul li a.active:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: var(--secondary);
+            bottom: 0;
+            left: 0;
+        }
+
+        .header-btns {
+            display: flex;
+            gap: 15px;
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 1.8rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        .mobile-demo-btn {
+            display: none;
+        }
+
+        .desktop-demo-btn {
+            display: flex;
+        }
+
+        /* Classes Hero Section */
+        .classes-hero {
+            background: linear-gradient(135deg, rgba(44, 62, 80, 0.9) 0%, rgba(52, 152, 219, 0.85) 100%), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 50vh;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+
+        .classes-hero-content {
+            max-width: 800px;
+            z-index: 2;
+        }
+
+        .classes-hero h1 {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .classes-hero p {
+            font-size: 1.4rem;
+            opacity: 0.9;
+            max-width: 600px;
+        }
+
+        /* Class Categories Section */
+        .class-categories {
+            background: white;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .category-icon {
+            height: 120px;
+            background: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+        }
+
+        .category-content {
+            padding: 30px;
+        }
+
+        .category-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .category-content p {
+            margin-bottom: 20px;
+        }
+
+        /* Class Schedule Section */
+        .class-schedule {
+            background: var(--light);
+        }
+
+        .schedule-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tab-btn {
+            padding: 12px 25px;
+            background: white;
+            border: none;
+            border-radius: 50px;
+            font-family: "Poppins", sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .tab-btn.active {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .tab-btn:hover:not(.active) {
+            background: rgba(52, 152, 219, 0.1);
+        }
+
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .schedule-table th {
+            background: var(--secondary);
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+
+        .schedule-table td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .schedule-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .schedule-table tr:hover {
+            background: rgba(52, 152, 219, 0.05);
+        }
+
+        .class-time {
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        .class-teacher {
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        .enroll-btn {
+            padding: 8px 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background: white;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 40px 30px;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            border-top: 3px solid var(--secondary);
+        }
+
+        .pricing-card.popular {
+            border-top: 3px solid var(--accent);
+        }
+
+        .pricing-card.popular:before {
+            content: 'Most Popular';
+            position: absolute;
+            top: 15px;
+            right: -35px;
+            background: var(--accent);
+            color: white;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .price span {
+            font-size: 1rem;
+            color: #777;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .pricing-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* FAQ Section */
+        .faq {
+            background: var(--light);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background: rgba(52, 152, 219, 0.05);
+        }
+
+        .faq-question i {
+            transition: var(--transition);
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-item.active .faq-question {
+            background: rgba(52, 152, 219, 0.1);
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 20px 20px;
+            max-height: 500px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: rgba(255, 255, 255, 0.8);
+            padding: 80px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-col h3 {
+            color: white;
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .footer-col h3:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+
+        .footer-social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .footer-social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .footer-social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            margin: 0;
+        }
+
+        .powered-by {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .powered-by a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .powered-by a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .classes-hero h1 {
+                font-size: 3rem;
+            }
+
+            .section-header h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+
+            nav {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                width: 80%;
+                height: calc(100vh - 80px);
+                background: white;
+                transition: var(--transition);
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            }
+
+            nav.active {
+                right: 0;
+            }
+
+            nav ul {
+                flex-direction: column;
+                padding: 30px;
+            }
+
+            nav ul li {
+                margin: 15px 0;
+            }
+
+            .classes-hero {
+                height: 40vh;
+                min-height: 350px;
+            }
+
+            .classes-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .classes-hero p {
+                font-size: 1.2rem;
+            }
+
+            .section-header h2 {
+                font-size: 2.2rem;
+                margin-bottom: 15px;
+                margin-top: 30px;
+            }
+
+            .section-header h2:after {
+                margin: 15px auto;
+            }
+
+            .desktop-demo-btn {
+                display: none;
+            }
+
+            .mobile-demo-btn {
+                display: block;
+                margin-top: 20px;
+            }
+
+            nav ul li .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .schedule-table {
+                display: block;
+                overflow-x: auto;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            section {
+                padding: 70px 0;
+            }
+
+            .classes-hero {
+                min-height: 300px;
+                margin-top: 70px;
+            }
+
+            .classes-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .section-header p {
+                font-size: 1.1rem;
+            }
+
+            .tab-btn {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="logo-text">Edu<span>Mentor</span></div>
+            </a>
+
+            <div class="mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="classes.html" class="active">Classes</a></li>
+                    <li><a href="announcement.html">Announcements</a></li>
+                    <li><a href="#">Guidance</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li class="mobile-demo-btn">
+                        <a href="#" class="btn btn-outline">Book A Demo Class</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="header-btns desktop-demo-btn">
+                <a href="#" class="btn btn-outline">Book A Demo Class</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Classes Hero Section -->
+    <section class="classes-hero">
+        <div class="container">
+            <div class="classes-hero-content">
+                <h1>Our Classes & Programs</h1>
+                <p>Discover the perfect learning path for your academic success with our comprehensive range of courses
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Class Categories Section -->
+    <section class="class-categories">
+        <div class="container">
+            <div class="section-header">
+                <h2>Explore Our Course Categories</h2>
+                <p>We offer specialized programs tailored to different educational needs and goals</p>
+            </div>
+
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3>School Curriculum</h3>
+                        <p>Comprehensive coaching for CBSE, ICSE, and State Board students from Class 1 to 12.</p>
+                        <a href="#" class="btn btn-outline">View Courses</a>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3>Competitive Exams</h3>
+                        <p>Specialized preparation for IIT-JEE, NEET, BITSAT, Olympiads, and other entrance exams.</p>
+                        <a href="#" class="btn btn-outline">View Courses</a>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3>Commerce Stream</h3>
+                        <p>Expert guidance for Accountancy, Economics, Business Studies, and CA Foundation.</p>
+                        <a href="#" class="btn btn-outline">View Courses</a>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3>Language Courses</h3>
+                        <p>Improve communication skills in English, Hindi, and regional languages.</p>
+                        <a href="#" class="btn btn-outline">View Courses</a>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3>Skill Development</h3>
+                        <p>Courses in coding, public speaking, creative writing, and other essential skills.</p>
+                        <a href="#" class="btn btn-outline">View Courses</a>
+                    </div>
+                </div>
+
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3>College Level</h3>
+                        <p>Support for university students in engineering, medical, and commerce streams.</p>
+                        <a href="#" class="btn btn-outline">View Courses</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Class Schedule Section -->
+    <section class="class-schedule">
+        <div class="container">
+            <div class="section-header">
+                <h2>Weekly Class Schedule</h2>
+                <p>Find the perfect time slot for your learning needs</p>
+            </div>
+
+            <div class="schedule-tabs">
+                <button class="tab-btn active" data-tab="school">School Curriculum</button>
+                <button class="tab-btn" data-tab="jee">IIT-JEE</button>
+                <button class="tab-btn" data-tab="neet">NEET</button>
+                <button class="tab-btn" data-tab="commerce">Commerce</button>
+            </div>
+
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Class</th>
+                        <th>Educator</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="school-schedule">
+                    <tr>
+                        <td class="class-time">Mon-Wed-Fri<br>4:00 PM - 5:30 PM</td>
+                        <td>Mathematics (Class 9-10 CBSE)<br><span class="class-teacher">By Ramesh Kumar</span></td>
+                        <td>Ramesh Kumar</td>
+                        <td><a href="#" class="btn enroll-btn">Enroll Now</a></td>
+                    </tr>
+                    <tr>
+                        <td class="class-time">Tue-Thu-Sat<br>5:00 PM - 6:30 PM</td>
+                        <td>Science (Class 8-10 ICSE)<br><span class="class-teacher">By Priya Sharma</span></td>
+                        <td>Priya Sharma</td>
+                        <td><a href="#" class="btn enroll-btn">Enroll Now</a></td>
+                    </tr>
+                    <tr>
+                        <td class="class-time">Mon-Fri<br>6:00 PM - 7:30 PM</td>
+                        <td>English (Class 6-8 All Boards)<br><span class="class-teacher">By Anjali Patel</span></td>
+                        <td>Anjali Patel</td>
+                        <td><a href="#" class="btn enroll-btn">Enroll Now</a></td>
+                    </tr>
+                    <tr>
+                        <td class="class-time">Sat-Sun<br>10:00 AM - 12:00 PM</td>
+                        <td>Mathematics (Class 11-12 CBSE)<br><span class="class-teacher">By Vikram Singh</span></td>
+                        <td>Vikram Singh</td>
+                        <td><a href="#" class="btn enroll-btn">Enroll Now</a></td>
+                    </tr>
+                </tbody>
+                <tbody id="jee-schedule" style="display: none;">
+                    <tr>
+                        <td class="class-time">Mon-Wed-Fri<br>4:00 PM - 6:00 PM</td>
+                        <td>JEE Main Mathematics<br><span class="class-teacher">By Dr. Rajesh Verma</span></td>
+                        <td>Dr. Rajesh Verma</td>
+                        <td><a href="#" class="btn enroll-btn">Enroll Now</a></td>
+                    </tr>
+                    <tr>
+                        <td class="class-time">Tue-Thu-Sat<br>5:00 PM - 7:00 PM</td>
+                        <td>JEE Advanced Physics<br><span class="class-teacher">By Anil Mehta</span></td>
+                        <td>Anil Mehta</td>
+                        <td><a href="#" class="btn enroll-btn">Enroll Now</a></td>
+                    </tr>
+                </tbody>
+                <tbody id="neet-schedule" style="display: none;">
+                    <tr>
+                        <td class="class-time">Mon-Wed-Fri<br>3:00 PM - 5:00 PM</td>
+                        <td>NEET Biology<br><span class="class-teacher">By Dr. Sunita Reddy</span></td>
+                        <td>Dr. Sunita Reddy</td>
+                        <td><a href="#" class="btn enroll-btn">Enroll Now</a></td>
+                    </tr>
+                    <tr>
+                        <td class="class-time">Tue-Thu-Sat<br>4:00 PM - 6:00 PM</td>
+                        <td>NEET Chemistry<br><span class="class-teacher">By Arun Joshi</span></td>
+                        <td>Arun Joshi</td>
+                        <td><a href="#" class="btn enroll-btn">Enroll Now</a></td>
+                    </tr>
+                </tbody>
+                <tbody id="commerce-schedule" style="display: none;">
+                    <tr>
+                        <td class="class-time">Mon-Wed-Fri<br>6:00 PM - 7:30 PM</td>
+                        <td>Accountancy (Class 11-12)<br><span class="class-teacher">By Neha Gupta</span></td>
+                        <td>Neha Gupta</td>
+                        <td><a href="#" class="btn enroll-btn">Enroll Now</a></td>
+                    </tr>
+                    <tr>
+                        <td class="class-time">Sat-Sun<br>2:00 PM - 4:00 PM</td>
+                        <td>CA Foundation<br><span class="class-teacher">By Rakesh Malhotra</span></td>
+                        <td>Rakesh Malhotra</td>
+                        <td><a href="#" class="btn enroll-btn">Enroll Now</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Pricing Plans</h2>
+                <p>Affordable options for every learning need and budget</p>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Basic</h3>
+                    <div class="price">₹2,999<span>/month</span></div>
+                    <ul class="pricing-features">
+                        <li>4 Classes per week</li>
+                        <li>1 Subject</li>
+                        <li>Study Materials</li>
+                        <li>Monthly Tests</li>
+                        <li>Email Support</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline">Choose Plan</a>
+                </div>
+
+                <div class="pricing-card popular">
+                    <h3>Standard</h3>
+                    <div class="price">₹4,999<span>/month</span></div>
+                    <ul class="pricing-features">
+                        <li>6 Classes per week</li>
+                        <li>2 Subjects</li>
+                        <li>Study Materials</li>
+                        <li>Weekly Tests</li>
+                        <li>Priority Support</li>
+                        <li>Doubt Sessions</li>
+                    </ul>
+                    <a href="#" class="btn">Choose Plan</a>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Premium</h3>
+                    <div class="price">₹7,999<span>/month</span></div>
+                    <ul class="pricing-features">
+                        <li>Unlimited Classes</li>
+                        <li>All Subjects</li>
+                        <li>Premium Study Materials</li>
+                        <li>Weekly Tests with Analysis</li>
+                        <li>24/7 Support</li>
+                        <li>Personal Mentor</li>
+                        <li>Career Guidance</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline">Choose Plan</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Find answers to common questions about our classes and programs</p>
+            </div>
+
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What is the duration of each class session?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our regular class sessions are typically 1.5 to 2 hours long. Intensive coaching sessions for
+                            competitive exams may be longer, usually 2-3 hours per session. The exact duration will be
+                            specified in the course details.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Can I change my batch or timing after enrollment?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, you can request a batch change based on availability. We allow one free batch change
+                            request per month. Additional changes may be subject to availability and administrative
+                            charges.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What is the student-teacher ratio in your classes?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We maintain an optimal student-teacher ratio to ensure personalized attention. Regular school
+                            curriculum classes have 10-15 students, while competitive exam batches have 15-20 students.
+                            For more personalized attention, we also offer one-on-one tutoring options.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Do you provide study materials and practice tests?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, all our courses include comprehensive study materials, worksheets, and regular practice
+                            tests. For competitive exam preparation, we also provide previous years' question papers,
+                            mock tests, and performance analysis reports.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What is your refund policy?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer a 7-day refund policy from the date of enrollment if you're not satisfied with our
+                            services. After attending more than 2 classes, only a prorated refund will be provided.
+                            Refund requests must be made in writing to our support team.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>EduMentor</h3>
+                    <p>Empowering educators and students across India with quality education solutions since 2010.</p>
+                    <div class="footer-social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="classes.html">Classes</a></li>
+                        <li><a href="#">Tutor Directory</a></li>
+                        <li><a href="#">Success Stories</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Programs</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">CBSE/ICSE Coaching</a></li>
+                        <li><a href="#">IIT-JEE Preparation</a></li>
+                        <li><a href="#">NEET Coaching</a></li>
+                        <li><a href="#">Commerce Programs</a></li>
+                        <li><a href="#">Language Courses</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Education Lane, Mumbai</li>
+                        <li><i class="fas fa-phone"></i> +91 98765 43210</li>
+                        <li><i class="fas fa-envelope"></i> info@edumentor.com</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2023 EduMentor. All Rights Reserved.</p>
+                <div class="powered-by">Powered by <a href="https://friendscampus.com" target="_blank">FriendsCampus</a>
+                </div>
+            </div </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const nav = document.querySelector('nav');
+
+        mobileToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            mobileToggle.querySelector('i').classList.toggle('fa-bars');
+            mobileToggle.querySelector('i').classList.toggle('fa-times');
+        });
+
+        // Set active nav link
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('nav a').forEach(link => {
+            if (link.getAttribute('href') === currentPage) {
+                link.classList.add('active');
+            }
+        });
+
+        // Animation on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.team-member, .value-card, .about-container');
+
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = 1;
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+
+        // Set initial state
+        document.querySelectorAll('.team-member, .value-card, .about-container').forEach(el => {
+            el.style.opacity = 0;
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        });
+
+        window.addEventListener('scroll', animateOnScroll);
+        // Trigger once on load
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+
+</html>
