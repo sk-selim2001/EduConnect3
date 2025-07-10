@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EduMentor - Excellence in Indian Education</title>
+    <title>Events & Activities - EduMentor</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap"
@@ -259,102 +259,117 @@
             margin-top: 30px;
         }
 
-        /* Features Section */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
-        .feature-card {
-            background: white;
-            border-radius: var(--border-radius);
-            padding: 40px 30px;
-            text-align: center;
-            transition: var(--transition);
-            box-shadow: var(--shadow);
-            border-top: 2px solid var(--secondary);
-            border-bottom: 2px solid var(--secondary);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .feature-icon {
-            font-size: 3.5rem;
-            color: var(--secondary);
-            margin-bottom: 25px;
-        }
-
-        .feature-card h3 {
-            font-size: 1.6rem;
-            margin-bottom: 15px;
-        }
-
-        /* Mission Section */
-        .mission {
+        /* Events Gallery Section */
+        .gallery-section {
             background-color: #f9f9f9;
         }
 
-        .mission-container {
+        .gallery-filter {
             display: flex;
-            align-items: center;
-            gap: 50px;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 50px;
         }
 
-        .mission-content {
-            flex: 1;
-        }
-
-        .mission-image {
-            flex: 1;
-            text-align: center;
-        }
-
-        .mission-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-        }
-
-        .mission-list {
-            list-style-type: none;
-            margin-top: 30px;
-        }
-
-        .mission-list li {
-            position: relative;
-            padding-left: 40px;
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-        }
-
-        .mission-list li:before {
-            content: "\f00c";
-            font-family: "Font Awesome 6 Free";
-            font-weight: 900;
-            position: absolute;
-            left: 0;
-            top: 0;
+        .filter-btn {
+            padding: 8px 25px;
+            background: white;
+            border: 2px solid var(--secondary);
             color: var(--secondary);
-            font-size: 1.3rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
         }
 
-        /* Subjects Section */
-        .subjects {
-            background: var(--light);
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--secondary);
+            color: white;
         }
 
-        .subjects-grid {
+        .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 30px;
         }
 
-        .subject-card {
+        .gallery-item {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 300px;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.05);
+        }
+
+        .gallery-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: white;
+            padding: 20px;
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-info {
+            transform: translateY(0);
+        }
+
+        .gallery-info h3 {
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .gallery-info p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+
+        .gallery-date {
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .gallery-date i {
+            margin-right: 8px;
+            color: var(--secondary);
+        }
+
+        /* Blog Section */
+        .blog-section {
+            background: white;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .blog-card {
             background: white;
             border-radius: var(--border-radius);
             overflow: hidden;
@@ -362,31 +377,68 @@
             transition: var(--transition);
         }
 
-        .subject-card:hover {
+        .blog-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
 
-        .subject-img {
-            height: 180px;
-            background: var(--secondary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .blog-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
         }
 
-        .subject-img i {
-            font-size: 5rem;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .subject-content {
+        .blog-content {
             padding: 25px;
         }
 
-        .subject-content h3 {
+        .blog-date {
+            display: flex;
+            align-items: center;
+            color: var(--secondary);
+            font-weight: 600;
             margin-bottom: 15px;
+        }
+
+        .blog-date i {
+            margin-right: 8px;
+        }
+
+        .blog-content h3 {
             font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .blog-content p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .blog-author {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            font-size: 0.8rem;
+            color: #777;
+            margin: 0;
         }
 
         /* Stats Section */
@@ -411,66 +463,6 @@
         .stat-item p {
             font-size: 1.2rem;
             opacity: 0.9;
-        }
-
-        /* Testimonials */
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .testimonial-card {
-            background: white;
-            border-radius: var(--border-radius);
-            padding: 30px;
-            box-shadow: var(--shadow);
-            position: relative;
-        }
-
-        .testimonial-card:before {
-            content: "" ";
- font-size: 6rem;
-            position: absolute;
-            top: -20px;
-            left: 10px;
-            color: var(--light);
-            font-family: Georgia, serif;
-            line-height: 1;
-        }
-
-        .testimonial-content {
-            margin-bottom: 20px;
-            font-style: italic;
-            position: relative;
-            z-index: 2;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-        }
-
-        .author-img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: var(--secondary);
-            margin-right: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        .author-info h4 {
-            margin-bottom: 5px;
-        }
-
-        .author-info p {
-            color: #777;
         }
 
         /* Call to Action */
@@ -594,46 +586,6 @@
             text-decoration: underline;
         }
 
-        /* Animation Elements */
-        .floating {
-            animation: floating 8s ease-in-out infinite;
-        }
-
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes floating {
-            0% {
-                transform: translate(0, 0px);
-            }
-
-            50% {
-                transform: translate(0, 15px);
-            }
-
-            100% {
-                transform: translate(0, -0px);
-            }
-        }
-
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.7);
-            }
-
-            70% {
-                transform: scale(1.02);
-                box-shadow: 0 0 0 15px rgba(52, 152, 219, 0);
-            }
-
-            100% {
-                transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(52, 152, 219, 0);
-            }
-        }
-
         /* Responsive Design */
         @media (max-width: 992px) {
             .hero h1 {
@@ -710,8 +662,9 @@
                 text-align: center;
             }
 
-            .mission-container {
-                flex-direction: column;
+            .gallery-grid,
+            .blog-grid {
+                grid-template-columns: 1fr;
             }
 
             .footer-bottom {
@@ -748,7 +701,7 @@
     <!-- Header -->
     <header>
         <div class="container header-container">
-            <a href="#" class="logo">
+            <a href="index.html" class="logo">
                 <div class="logo-icon">
                     <i class="fas fa-graduation-cap"></i>
                 </div>
@@ -761,13 +714,11 @@
 
             <nav>
                 <ul>
-                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="classes.html">Classes</a></li>
-                    <li><a href="events.html">Events</a></li>
+                    <li><a href="events.html" class="active">Events</a></li>
                     <li><a href="results.html">Results</a></li>
-                    <!-- <li><a href="announcement.html">Announcements</a></li>
-                    <li><a href="guidance.html">Guidance</a></li> -->
                     <li><a href="contact.html">Contact</a></li>
                     <li class="mobile-demo-btn">
                         <a href="#" class="btn btn-outline">Ask Your Query</a>
@@ -785,135 +736,190 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Transforming Education with Personalized Excellence</h1>
-                <p>India's premier platform connecting dedicated educators with motivated learners for academic success
-                </p>
+                <h1>Our Events & Activities</h1>
+                <p>Discover the vibrant life at EduMentor beyond classrooms - picnics, competitions, and educational
+                    tours that enrich learning</p>
                 <div class="hero-btns">
-                    <a href="#" class="btn pulse">Find a Tutor</a>
-                    <a href="#" class="btn btn-accent">Join as Educator</a>
+                    <a href="#" class="btn pulse">Upcoming Events</a>
+                    <a href="#" class="btn btn-accent">View Gallery</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features">
+    <!-- Events Gallery Section -->
+    <section class="gallery-section">
         <div class="container">
             <div class="section-header">
-                <h2>Why Choose EduMentor?</h2>
-                <p>We provide the perfect environment for academic growth and excellence</p>
+                <h2>Our Events Gallery</h2>
+                <p>Capturing memorable moments from our educational activities, picnics, and competitions</p>
             </div>
 
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon floating">
-                        <i class="fas fa-user-graduate"></i>
+            <div class="gallery-filter">
+                <button class="filter-btn active" data-filter="all">All Events</button>
+                <button class="filter-btn" data-filter="picnic">Picnics & Tours</button>
+                <button class="filter-btn" data-filter="competition">Competitions</button>
+                <button class="filter-btn" data-filter="workshop">Workshops</button>
+                <button class="filter-btn" data-filter="celebration">Celebrations</button>
+            </div>
+
+            <div class="gallery-grid">
+                <!-- Event 1 -->
+                <div class="gallery-item" data-category="picnic">
+                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                        alt="Educational Tour" class="gallery-img">
+                    <div class="gallery-info">
+                        <h3>Science Museum Visit</h3>
+                        <p>Students exploring interactive exhibits at the National Science Museum, Delhi</p>
+                        <div class="gallery-date">
+                            <i class="far fa-calendar-alt"></i> 15 March 2023
+                        </div>
                     </div>
-                    <h3>Expert Educators</h3>
-                    <p>Our tutors are highly qualified professionals with proven teaching methodologies and subject
-                        expertise.</p>
                 </div>
 
-                <div class="feature-card">
-                    <div class="feature-icon floating">
-                        <i class="fas fa-book-open"></i>
+                <!-- Event 2 -->
+                <div class="gallery-item" data-category="competition">
+                    <img src="https://images.unsplash.com/photo-1524179091875-bf99a9a6af57?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                        alt="Math Olympiad" class="gallery-img">
+                    <div class="gallery-info">
+                        <h3>Annual Math Olympiad</h3>
+                        <p>Students competing in our prestigious mathematics competition with 150+ participants</p>
+                        <div class="gallery-date">
+                            <i class="far fa-calendar-alt"></i> 28 February 2023
+                        </div>
                     </div>
-                    <h3>Custom Curriculum</h3>
-                    <p>Personalized learning plans tailored to each student's needs, pace, and learning style.</p>
                 </div>
 
-                <div class="feature-card">
-                    <div class="feature-icon floating">
-                        <i class="fas fa-laptop"></i>
+                <!-- Event 3 -->
+                <div class="gallery-item" data-category="workshop">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                        alt="Career Workshop" class="gallery-img">
+                    <div class="gallery-info">
+                        <h3>Career Guidance Workshop</h3>
+                        <p>Industry experts guiding students about career options after 12th standard</p>
+                        <div class="gallery-date">
+                            <i class="far fa-calendar-alt"></i> 10 January 2023
+                        </div>
                     </div>
-                    <h3>Hybrid Learning</h3>
-                    <p>Flexible online and in-person sessions with state-of-the-art virtual classroom technology.</p>
+                </div>
+
+                <!-- Event 4 -->
+                <div class="gallery-item" data-category="picnic">
+                    <img src="https://images.unsplash.com/photo-1542626991-cbc4e32524cc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80"
+                        alt="Nature Camp" class="gallery-img">
+                    <div class="gallery-info">
+                        <h3>Nature Learning Camp</h3>
+                        <p>3-day residential camp at Rishikesh combining adventure with environmental studies</p>
+                        <div class="gallery-date">
+                            <i class="far fa-calendar-alt"></i> 5-7 December 2022
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 5 -->
+                <div class="gallery-item" data-category="celebration">
+                    <img src="https://images.unsplash.com/photo-1541178735493-479c1a27ed24?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80"
+                        alt="Annual Day" class="gallery-img">
+                    <div class="gallery-info">
+                        <h3>Annual Day Celebration</h3>
+                        <p>Students showcasing their talents in cultural performances and award ceremony</p>
+                        <div class="gallery-date">
+                            <i class="far fa-calendar-alt"></i> 20 November 2022
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 6 -->
+                <div class="gallery-item" data-category="workshop">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                        alt="Science Fair" class="gallery-img">
+                    <div class="gallery-info">
+                        <h3>Science & Innovation Fair</h3>
+                        <p>Students presenting their innovative science projects to judges and visitors</p>
+                        <div class="gallery-date">
+                            <i class="far fa-calendar-alt"></i> 15 October 2022
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Mission Section -->
-    <section class="mission">
+    <!-- Blog Section -->
+    <section class="blog-section">
         <div class="container">
             <div class="section-header">
-                <h2>Our Educational Approach</h2>
-                <p>Discover our unique methodology that sets us apart in the Indian education landscape</p>
+                <h2>Latest Event Updates</h2>
+                <p>Read about our recent activities and upcoming events in our blog</p>
             </div>
 
-            <div class="mission-container">
-                <div class="mission-content">
-                    <p>At EduMentor, we've developed a comprehensive educational approach that combines traditional
-                        teaching values with modern pedagogical techniques. Our methodology is designed to address the
-                        diverse learning needs of Indian students while maintaining academic rigor.</p>
-
-                    <ul class="mission-list">
-                        <li><strong>Personalized Learning:</strong> Customized lesson plans based on individual student
-                            assessment</li>
-                        <li><strong>Concept Mastery:</strong> Focus on fundamental understanding rather than rote
-                            learning</li>
-                        <li><strong>Exam-Oriented Training:</strong> Specialized preparation for board and competitive
-                            exams</li>
-                        <li><strong>Continuous Evaluation:</strong> Regular assessments to track progress and identify
-                            areas for improvement</li>
-                        <li><strong>Holistic Development:</strong> Emphasis on critical thinking, problem-solving, and
-                            communication skills</li>
-                    </ul>
-                </div>
-                <div class="mission-image">
-                    <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                        alt="Teacher helping students with their studies" loading="lazy">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Subjects Section -->
-    <section class="subjects">
-        <div class="container">
-            <div class="section-header">
-                <h2>Our Academic Curriculum</h2>
-                <p>Comprehensive courses designed for Indian educational boards and competitive exams</p>
-            </div>
-
-            <div class="subjects-grid">
-                <div class="subject-card">
-                    <div class="subject-img">
-                        <i class="fas fa-calculator"></i>
-                    </div>
-                    <div class="subject-content">
-                        <h3>Mathematics</h3>
-                        <p>CBSE, ICSE, State Boards, IIT-JEE, BITSAT, Olympiads</p>
+            <div class="blog-grid">
+                <!-- Blog 1 -->
+                <div class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+                        alt="Summer Camp" class="blog-img">
+                    <div class="blog-content">
+                        <div class="blog-date">
+                            <i class="far fa-calendar-alt"></i> 25 May 2023
+                        </div>
+                        <h3>Summer Learning Camp 2023</h3>
+                        <p>Join our exciting 2-week summer program combining academics with fun activities like
+                            robotics, art, and outdoor sports. Limited seats available!</p>
+                        <a href="#" class="btn btn-outline">Read More</a>
+                        <div class="blog-author">
+                            <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Author"
+                                class="author-avatar">
+                            <div class="author-info">
+                                <h4>Dr. Priya Sharma</h4>
+                                <p>Academic Coordinator</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="subject-card">
-                    <div class="subject-img">
-                        <i class="fas fa-atom"></i>
-                    </div>
-                    <div class="subject-content">
-                        <h3>Science</h3>
-                        <p>Physics, Chemistry, Biology for all levels and competitive exams</p>
+                <!-- Blog 2 -->
+                <div class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1172&q=80"
+                        alt="Parent-Teacher Meet" class="blog-img">
+                    <div class="blog-content">
+                        <div class="blog-date">
+                            <i class="far fa-calendar-alt"></i> 12 May 2023
+                        </div>
+                        <h3>Annual Parent-Teacher Meet Highlights</h3>
+                        <p>Successful interaction between parents and educators to discuss student progress and
+                            development strategies.</p>
+                        <a href="#" class="btn btn-outline">Read More</a>
+                        <div class="blog-author">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Author"
+                                class="author-avatar">
+                            <div class="author-info">
+                                <h4>Rahul Verma</h4>
+                                <p>Center Head</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="subject-card">
-                    <div class="subject-img">
-                        <i class="fas fa-book"></i>
-                    </div>
-                    <div class="subject-content">
-                        <h3>Commerce</h3>
-                        <p>Accountancy, Business Studies, Economics, CA Foundation</p>
-                    </div>
-                </div>
-
-                <div class="subject-card">
-                    <div class="subject-img">
-                        <i class="fas fa-language"></i>
-                    </div>
-                    <div class="subject-content">
-                        <h3>Languages</h3>
-                        <p>English, Hindi, Regional Languages, Communication Skills</p>
+                <!-- Blog 3 -->
+                <div class="blog-card">
+                    <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1171&q=80"
+                        alt="Study Tour" class="blog-img">
+                    <div class="blog-content">
+                        <div class="blog-date">
+                            <i class="far fa-calendar-alt"></i> 28 April 2023
+                        </div>
+                        <h3>Jaipur Heritage Study Tour Recap</h3>
+                        <p>Our students explored the rich history of Rajasthan through this 3-day educational excursion
+                            visiting historical sites and museums.</p>
+                        <a href="#" class="btn btn-outline">Read More</a>
+                        <div class="blog-author">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Author"
+                                class="author-avatar">
+                            <div class="author-info">
+                                <h4>Anjali Patel</h4>
+                                <p>Tour Coordinator</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -925,71 +931,23 @@
         <div class="container">
             <div class="stats-grid">
                 <div class="stat-item">
-                    <h3>5000+</h3>
-                    <p>Students Enrolled</p>
+                    <h3>120+</h3>
+                    <p>Events Organized</p>
                 </div>
 
                 <div class="stat-item">
-                    <h3>850+</h3>
-                    <p>Expert Tutors</p>
+                    <h3>3500+</h3>
+                    <p>Students Participated</p>
                 </div>
 
                 <div class="stat-item">
-                    <h3>96%</h3>
-                    <p>Success Rate</p>
+                    <h3>85+</h3>
+                    <p>Educational Tours</p>
                 </div>
 
                 <div class="stat-item">
-                    <h3>25+</h3>
-                    <p>Cities Across India</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="testimonials">
-        <div class="container">
-            <div class="section-header">
-                <h2>Success Stories</h2>
-                <p>Hear what our students and parents have to say about their learning journey</p>
-            </div>
-
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <p class="testimonial-content">EduMentor transformed my daughter's approach to Mathematics. Her
-                        confidence and scores have improved dramatically in just three months!</p>
-                    <div class="testimonial-author">
-                        <div class="author-img">RS</div>
-                        <div class="author-info">
-                            <h4>Rajesh Sharma</h4>
-                            <p>Parent, Delhi</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <p class="testimonial-content">The personalized attention and customized study plan helped me crack
-                        NEET in my first attempt. Thank you EduMentor for making my dream come true!</p>
-                    <div class="testimonial-author">
-                        <div class="author-img">PK</div>
-                        <div class="author-info">
-                            <h4>Priya Kumar</h4>
-                            <p>Medical Student, Bangalore</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <p class="testimonial-content">As a home tutor, EduMentor provided me with great teaching resources
-                        and connected me with serious students. My income has doubled since joining.</p>
-                    <div class="testimonial-author">
-                        <div class="author-img">AM</div>
-                        <div class="author-info">
-                            <h4>Anil Mehta</h4>
-                            <p>Physics Tutor, Mumbai</p>
-                        </div>
-                    </div>
+                    <h3>98%</h3>
+                    <p>Satisfaction Rate</p>
                 </div>
             </div>
         </div>
@@ -998,10 +956,10 @@
     <!-- Call to Action -->
     <section class="cta">
         <div class="container">
-            <h2>Ready to Transform Your Learning Experience?</h2>
-            <p>Join thousands of successful students and dedicated educators in India's most trusted education platform
+            <h2>Want to Participate in Our Next Event?</h2>
+            <p>Join our community of learners and educators for exciting educational experiences beyond the classroom
             </p>
-            <a href="#" class="btn pulse">Get Started Today</a>
+            <a href="#" class="btn pulse">Register Now</a>
         </div>
     </section>
 
@@ -1026,19 +984,19 @@
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="classes.html">Classes</a></li>
-                        <li><a href="announcement.html">Announcements</a></li>
+                        <li><a href="events.html">Events Gallery</a></li>
                         <li><a href="success.html">Success Stories</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-col">
-                    <h3>Programs</h3>
+                    <h3>Events</h3>
                     <ul class="footer-links">
-                        <li><a href="#">CBSE/ICSE Coaching</a></li>
-                        <li><a href="#">IIT-JEE Preparation</a></li>
-                        <li><a href="#">NEET Coaching</a></li>
-                        <li><a href="#">Commerce Programs</a></li>
-                        <li><a href="#">Language Courses</a></li>
+                        <li><a href="#">Upcoming Workshops</a></li>
+                        <li><a href="#">Educational Tours</a></li>
+                        <li><a href="#">Competitions</a></li>
+                        <li><a href="#">Annual Day</a></li>
+                        <li><a href="#">Summer Camp</a></li>
                     </ul>
                 </div>
 
@@ -1048,6 +1006,7 @@
                         <li><i class="fas fa-map-marker-alt"></i> 123 Education Lane, Mumbai</li>
                         <li><i class="fas fa-phone"></i> +91 98765 43210</li>
                         <li><i class="fas fa-envelope"></i> info@edumentor.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Sat: 9AM - 7PM</li>
                     </ul>
                 </div>
             </div>
@@ -1071,19 +1030,32 @@
             mobileToggle.querySelector('i').classList.toggle('fa-times');
         });
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+        // Gallery Filter
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                galleryItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
                 });
             });
         });
 
         // Animation on scroll
         const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.feature-card, .subject-card, .testimonial-card, .mission-container');
+            const elements = document.querySelectorAll('.gallery-item, .blog-card');
 
             elements.forEach(element => {
                 const elementPosition = element.getBoundingClientRect().top;
@@ -1097,7 +1069,7 @@
         };
 
         // Set initial state
-        document.querySelectorAll('.feature-card, .subject-card, .testimonial-card, .mission-container').forEach(el => {
+        document.querySelectorAll('.gallery-item, .blog-card').forEach(el => {
             el.style.opacity = 0;
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
